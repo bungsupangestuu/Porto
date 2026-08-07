@@ -1,154 +1,3 @@
-<!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bungsu Pangestu, S.Kom. | IT Support & Web Developer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0fdfa',
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            900: '#134e4a',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glass-card:hover {
-            border-color: rgba(45, 212, 191, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(45, 212, 191, 0.15);
-        }
-    </style>
-</head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-400 selection:text-slate-950 min-h-screen flex flex-col justify-between">
-
-    <!-- Header / Navbar -->
-    <header class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 z-50">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tight text-brand-400 font-mono">BP<span class="text-slate-400">.dev</span></a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-brand-400 transition">Tentang</a>
-                <a href="#skills" class="hover:text-brand-400 transition">Keahlian</a>
-                <a href="#projects" class="hover:text-brand-400 transition">Proyek</a>
-                <a href="#education" class="hover:text-brand-400 transition">Pendidikan</a>
-                <a href="#contact" class="hover:text-brand-400 transition">Kontak</a>
-            </nav>
-            <a href="#contact" class="bg-brand-500/10 border border-brand-400/30 hover:border-brand-400 text-brand-400 font-semibold px-4 py-2 rounded-lg text-sm transition">
-                Hubungi Saya
-            </a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="about" class="pt-36 pb-20 max-w-6xl mx-auto px-6">
-        <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-400/20 text-brand-400 text-xs font-mono mb-6">
-                <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
-                Open for IT Support & Web Developer Roles
-            </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-100 tracking-tight leading-tight">
-                Bungsu Pangestu, <span class="text-slate-500 font-normal">S.Kom.</span>
-            </h1>
-            <h2 class="text-2xl sm:text-3xl font-bold text-brand-400 mt-3">
-                IT Support Specialist & Web Developer
-            </h2>
-            <p class="mt-6 text-slate-400 leading-relaxed text-base sm:text-lg">
-                Lulusan Sarjana Komputer (S.Kom.) dari Universitas Subang yang berfokus pada pemeliharaan infrastruktur IT, *troubleshooting* sistem, konfigurasi jaringan & server, serta pengembangan aplikasi berbasis web. Terbiasa mengelola sistem terdistribusi, aset domain, serta pemeliharaan jaringan *broadband*.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-                <a href="#projects" class="bg-brand-400 hover:bg-brand-500 text-slate-950 font-bold px-6 py-3 rounded-lg transition shadow-lg shadow-brand-400/20 flex items-center gap-2">
-                    <i class="fa-solid fa-folder-open"></i> Lihat Proyek
-                </a>
-                <a href="#contact" class="border border-slate-700 hover:border-slate-500 bg-slate-900/50 text-slate-300 font-semibold px-6 py-3 rounded-lg transition flex items-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i> Kontak
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-slate-900/40 border-y border-slate-800/60">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-3 mb-12">
-                <span class="text-brand-400 font-mono text-sm">01.</span>
-                <h3 class="text-2xl font-bold text-slate-100">Keahlian Teknis</h3>
-                <div class="h-[1px] bg-slate-800 flex-1 ml-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- IT Support Card -->
-                <div class="glass-card p-6 rounded-2xl transition">
-                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-400/20 flex items-center justify-center text-brand-400 text-xl mb-6">
-                        <i class="fa-solid fa-server"></i>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-100 mb-3">IT Support & Network</h4>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Pemeliharaan hardware/software, diagnosa masalah operasional, dan manajemen alokasi data/jaringan.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Hardware Maintenance</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">DNS / DHCP</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Broadband Line</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Router Config</span>
-                    </div>
-                </div>
-
-                <!-- Web Dev Card -->
-                <div class="glass-card p-6 rounded-2xl transition">
-                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-400/20 flex items-center justify-center text-brand-400 text-xl mb-6">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-100 mb-3">Web Development</h4>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Pengembangan aplikasi web berbasis MySQL/PHP, pemetaan basis data, dan konfigurasi *custom domain*.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">PHP</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">MySQL / SQL</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">JavaScript</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">HTML/Tailwind</span>
-                    </div>
-                </div>
-
-                <!-- Tools & Admin Card -->
-                <div class="glass-card p-6 rounded-2xl transition">
-                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-400/20 flex items-center justify-center text-brand-400 text-xl mb-6">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
-                    <h4 class="text-lg font-bold text-slate-100 mb-3">Tools & Systems</h4>
-                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">Alat analisis sistem, pengelola repositori kode, dan antarmuka manajemen hosting/server.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Git / GitHub</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">VS Code</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">cPanel Admin</span>
-                        <span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">UML Modeling</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Projects Section -->
     <section id="projects" class="py-20 max-w-6xl mx-auto px-6">
         <div class="flex items-center gap-3 mb-12">
@@ -158,7 +7,32 @@
         </div>
 
         <div class="space-y-8">
-            <!-- Project 1: Skripsi -->
+            <!-- Project 1: Web Infrastructure airmandiri.my.id -->
+            <div class="glass-card rounded-2xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div class="lg:col-span-12">
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="text-brand-400 text-xs font-mono">Web Asset & Infrastructure Project</span>
+                        <a href="https://airmandiri.my.id" target="_blank" class="text-brand-400 hover:underline text-xs font-mono flex items-center gap-1">
+                            airmandiri.my.id <i class="fa-solid fa-up-right-from-square"></i>
+                        </a>
+                    </div>
+                    <h4 class="text-xl sm:text-2xl font-bold text-slate-100 mb-4">
+                        Web Asset Management & Network Configuration (airmandiri.my.id)
+                    </h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Mengelola penuh infrastruktur properti web mandiri mencakup pendaftaran dan konfigurasi domain kustom, pemetaan DNS Record (A Record & CNAME), tindakan penanganan pemeliharaan jaringan (*unsuspension* & *upgrade* jaringan), pengkonfigurasian sertifikat SSL, serta memastikan *uptime* server dan ketersediaan layanan berjalan aman dan stabil.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-300 mb-2">
+                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">DNS Management</span>
+                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">cPanel Admin</span>
+                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">SSL Certificate</span>
+                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">Network Upgrade</span>
+                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">Domain Routing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Skripsi SDN Sagalaherang 2 -->
             <div class="glass-card rounded-2xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
                 <div class="lg:col-span-12">
                     <div class="flex justify-between items-start mb-2">
@@ -171,7 +45,7 @@
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
                         Merancang dan membangun aplikasi web untuk mendigitalisasi proses evaluasi kinerja guru. Sistem ini memiliki permodelan UML (*Use Case*) terstruktur untuk hak akses multi-user (Admin, Operator, dan Kepala Sekolah), pengelolaan data kriteria/kompetensi, perhitungan peringkat, hingga pencetakan laporan otomatis.
                     </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-300 mb-6">
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-300 mb-2">
                         <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">PHP</span>
                         <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">MySQL</span>
                         <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">UML Modeling</span>
@@ -179,83 +53,5 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Project 2: Web Domain & Network -->
-            <div class="glass-card rounded-2xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                <div class="lg:col-span-12">
-                    <div class="flex justify-between items-start mb-2">
-                        <span class="text-brand-400 text-xs font-mono">Web & Infrastructure Project</span>
-                        <span class="text-slate-500 text-xs font-mono">Domain: airmandiri.my.id</span>
-                    </div>
-                    <h4 class="text-xl sm:text-2xl font-bold text-slate-100 mb-4">
-                        Web Asset Management & Network Configuration
-                    </h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Mengelola konfigurasi domain kustom, pemetaan DNS Record (A & CNAME), penanganan pemeliharaan jaringan (*unsuspension & upgrade*), pengkonfigurasian sertifikasi SSL, serta memastikan ketersediaan server web aman dan dapat diakses dengan stabil.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-300 mb-6">
-                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">DNS Management</span>
-                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">cPanel Admin</span>
-                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">SSL Config</span>
-                        <span class="bg-slate-900 border border-slate-700 px-3 py-1 rounded-lg">Domain Routing</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
-
-    <!-- Education & Career Section -->
-    <section id="education" class="py-20 bg-slate-900/40 border-t border-slate-800/60">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-3 mb-12">
-                <span class="text-brand-400 font-mono text-sm">03.</span>
-                <h3 class="text-2xl font-bold text-slate-100">Pendidikan & Evaluasi Kompetensi</h3>
-                <div class="h-[1px] bg-slate-800 flex-1 ml-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card p-6 rounded-2xl">
-                    <span class="text-brand-400 text-xs font-mono">2019 - 2024</span>
-                    <h4 class="text-lg font-bold text-slate-100 mt-1">S1 Sistem Informasi / Komputer</h4>
-                    <p class="text-slate-400 text-sm mt-1">Universitas Subang</p>
-                    <p class="text-slate-400 text-xs mt-3 leading-relaxed">
-                        Fokus pada rekayasa perangkat lunak, analisis sistem informasi, administrasi basis data, dan jaringan komputer. Lulus dengan penyelesaian tugas akhir sistem penilaian berbasis web.
-                    </p>
-                </div>
-
-                <div class="glass-card p-6 rounded-2xl">
-                    <span class="text-brand-400 text-xs font-mono">Seleksi & Evaluasi Vokasi</span>
-                    <h4 class="text-lg font-bold text-slate-100 mt-1">Evaluasi Kompetensi Industri</h4>
-                    <p class="text-slate-400 text-sm mt-1">BUMN & Corporate Placement Tracks</p>
-                    <p class="text-slate-400 text-xs mt-3 leading-relaxed">
-                        Aktif mengikuti evaluasi seleksi nasional FHCI BUMN serta jalur pengujian potensi teknis industri regional di Jawa Barat.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact & Footer -->
-    <footer id="contact" class="py-20 border-t border-slate-800 text-center">
-        <div class="max-w-3xl mx-auto px-6">
-            <span class="text-brand-400 font-mono text-sm">04. Mari Terhubung</span>
-            <h3 class="text-3xl font-extrabold text-slate-100 mt-2">Hubungi Saya</h3>
-            <p class="text-slate-400 mt-4 text-sm leading-relaxed">
-                Saya terbuka untuk peluang kerja sebagai IT Support, Network Administrator, maupun Web Developer. Silakan kirimkan pesan atau hubungi saya langsung.
-            </p>
-
-            <div class="mt-8 flex justify-center items-center gap-6 text-2xl text-slate-400">
-                <a href="mailto:bungsupangestu33@gmail.com" class="hover:text-brand-400 transition" title="Email"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://wa.me/628xxxxxxxxxx" target="_blank" class="hover:text-brand-400 transition" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://github.com" target="_blank" class="hover:text-brand-400 transition" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank" class="hover:text-brand-400 transition" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-
-            <p class="text-xs text-slate-600 mt-12 font-mono">
-                © 2026 Bungsu Pangestu, S.Kom. Built with HTML & Tailwind CSS.
-            </p>
-        </div>
-    </footer>
-
-</body>
-</html>
