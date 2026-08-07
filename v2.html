@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bungsu Pangestu, S.Kom. | Next-Gen IT Portfolio V2</title>
+    <title>Bungsu Pangestu, S.Kom. | Creative Motion Portfolio V2</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,9 +13,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- AOS (Animate On Scroll) CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <script>
         tailwind.config = {
@@ -26,10 +23,11 @@
                         mono: ['Fira Code', 'monospace'],
                     },
                     colors: {
-                        accent: {
+                        cyber: {
                             cyan: '#06b6d4',
-                            violet: '#8b5cf6',
+                            purple: '#a855f7',
                             emerald: '#10b981',
+                            pink: '#ec4899'
                         }
                     }
                 }
@@ -37,143 +35,217 @@
         }
     </script>
     <style>
-        /* Modern Pro-Max Ambient Styling & Custom Gradients */
         body {
             background-color: #030712;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
         }
 
-        .bento-card {
-            background: rgba(17, 24, 39, 0.7);
+        /* 1. Background Grid Pattern & Ambient Rotating Orbs */
+        .cyber-bg {
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #06b6d4;
+            top: -100px;
+            left: -100px;
+            animation: orbMove1 15s ease-in-out infinite alternate;
+        }
+
+        .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: #a855f7;
+            bottom: -50px;
+            right: -50px;
+            animation: orbMove2 18s ease-in-out infinite alternate;
+        }
+
+        @keyframes orbMove1 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(120px, 80px) scale(1.2); }
+        }
+
+        @keyframes orbMove2 {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-100px, -60px) scale(1.15); }
+        }
+
+        /* 2. Continuous Flowing Gradient Text */
+        .text-flow {
+            background: linear-gradient(90deg, #06b6d4, #a855f7, #ec4899, #06b6d4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textFlow 6s linear infinite;
+        }
+
+        @keyframes textFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 3. Floating Animation Classes (Berbeda Rhythm) */
+        .float-slow {
+            animation: floatAnim 6s ease-in-out infinite;
+        }
+
+        .float-medium {
+            animation: floatAnim 4.5s ease-in-out 0.8s infinite;
+        }
+
+        .float-fast {
+            animation: floatAnim 3.5s ease-in-out 1.5s infinite;
+        }
+
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-14px) rotate(0.5deg); }
+        }
+
+        /* 4. Glowing Neon Border Loop */
+        .neon-card {
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .bento-card:hover {
-            border-color: rgba(6, 182, 212, 0.5);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.25);
+        .neon-card:hover {
+            transform: translateY(-6px) scale(1.015);
+            border-color: rgba(6, 182, 212, 0.6);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
         }
 
-        .neon-border {
-            position: relative;
+        .neon-pulse-border {
+            animation: neonPulse 3s ease-in-out infinite alternate;
         }
 
-        .neon-border::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(90deg, #06b6d4, #8b5cf6, #10b981);
-            border-radius: 1.25rem;
-            z-index: -1;
-            opacity: 0.3;
-            transition: opacity 0.3s ease;
-        }
-
-        .neon-border:hover::before {
-            opacity: 1;
+        @keyframes neonPulse {
+            0% { border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 0 15px rgba(6, 182, 212, 0.1); }
+            100% { border-color: rgba(168, 85, 247, 0.7); box-shadow: 0 0 30px rgba(168, 85, 247, 0.3); }
         }
     </style>
 </head>
-<body class="text-slate-100 font-sans antialiased selection:bg-accent-cyan selection:text-slate-950 min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body class="text-slate-100 font-sans antialiased selection:bg-cyber-cyan selection:text-slate-950 min-h-screen flex flex-col justify-between overflow-x-hidden cyber-bg relative">
 
-    <!-- Navbar Futuristik -->
+    <!-- Ambient Glowing Orbs (Animasi Putar/Geser di Background) -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Header Navbar dengan Efek Glass & Glowing Border -->
     <header class="fixed top-0 w-full bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/80 z-50">
         <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-tight font-mono flex items-center gap-2 hover:scale-105 transition-transform">
-                <span class="p-2 rounded-xl bg-gradient-to-r from-accent-cyan to-accent-violet text-slate-950 font-black"><i class="fa-solid fa-bolt text-sm"></i></span> BP<span class="text-accent-cyan">.v2</span>
+            <a href="#" class="text-xl font-bold tracking-tight font-mono flex items-center gap-2.5 hover:scale-105 transition-transform">
+                <span class="p-2 rounded-xl bg-gradient-to-tr from-cyber-cyan to-cyber-purple text-slate-950 font-black animate-pulse">
+                    <i class="fa-solid fa-code text-sm"></i>
+                </span> 
+                BP<span class="text-cyber-cyan">.v2</span>
             </a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-accent-cyan transition">Profil</a>
-                <a href="#skills" class="hover:text-accent-cyan transition">Skill Grid</a>
-                <a href="#projects" class="hover:text-accent-cyan transition">Proyek Rekayasa</a>
-                <a href="#education" class="hover:text-accent-cyan transition">Kualifikasi</a>
-                <a href="#contact" class="hover:text-accent-cyan transition">Kontak</a>
+                <a href="#about" class="hover:text-cyber-cyan transition">Profil</a>
+                <a href="#skills" class="hover:text-cyber-cyan transition">Skill Grid</a>
+                <a href="#projects" class="hover:text-cyber-cyan transition">Proyek Rekayasa</a>
+                <a href="#education" class="hover:text-cyber-cyan transition">Kualifikasi</a>
+                <a href="#contact" class="hover:text-cyber-cyan transition">Kontak</a>
             </nav>
             <div class="flex items-center gap-3">
-                <a href="https://drive.google.com/file/d/1vRp5kgvRvbBiJMYursPNAB46-qPuAFR4/view?usp=drivesdk" target="_blank" class="hidden sm:flex border border-slate-700 hover:border-accent-cyan bg-slate-900/80 text-slate-200 hover:text-accent-cyan font-semibold px-4 py-2 rounded-xl text-sm transition items-center gap-2 hover:scale-105">
-                    <i class="fa-solid fa-file-arrow-down"></i> CV PDF
+                <a href="https://drive.google.com/file/d/1vRp5kgvRvbBiJMYursPNAB46-qPuAFR4/view?usp=drivesdk" target="_blank" class="hidden sm:flex border border-slate-700 hover:border-cyber-cyan bg-slate-900/80 text-slate-200 hover:text-cyber-cyan font-semibold px-4 py-2 rounded-xl text-sm transition items-center gap-2 hover:scale-105">
+                    <i class="fa-solid fa-file-arrow-down"></i> Unduh CV
                 </a>
-                <a href="https://wa.me/6285155036969?text=Halo%20Bungsu,%20saya%20tertarik%20dengan%20portofolio%20v2%20Anda." target="_blank" class="bg-gradient-to-r from-accent-cyan to-accent-violet text-slate-950 font-bold px-4 py-2 rounded-xl text-sm transition flex items-center gap-2 hover:scale-105 shadow-lg shadow-accent-cyan/20">
+                <a href="https://wa.me/6285155036969?text=Halo%20Bungsu,%20saya%20melihat%20portofolio%20v2%20Anda." target="_blank" class="bg-gradient-to-r from-cyber-cyan to-cyber-purple text-slate-950 font-bold px-4 py-2 rounded-xl text-sm transition flex items-center gap-2 hover:scale-105 shadow-lg shadow-cyber-cyan/20">
                     <i class="fa-brands fa-whatsapp"></i> Chat Direct
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section: Split Layout Pro-Max -->
-    <section id="about" class="pt-36 pb-20 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <!-- Hero Section: Dynamic Asymmetric Bento Layout -->
+    <section id="about" class="pt-36 pb-20 max-w-6xl mx-auto px-6 z-10 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div class="lg:col-span-7" data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-xs font-mono mb-6">
-                    <span class="w-2 h-2 rounded-full bg-accent-cyan animate-pulse"></span>
-                    PRO-MAX EDITION V2 | OPEN FOR CAREER ROLES
+            <div class="lg:col-span-7">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan text-xs font-mono mb-6 shadow-lg shadow-cyber-cyan/10">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyber-cyan animate-ping"></span>
+                    CREATIVE MOTION V2 | OPEN FOR ROLES
                 </div>
                 <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-100 tracking-tight leading-tight">
-                    Bungsu Pangestu, <span class="bg-gradient-to-r from-accent-cyan via-accent-violet to-accent-emerald bg-clip-text text-transparent">S.Kom.</span>
+                    Bungsu Pangestu, <span class="text-flow">S.Kom.</span>
                 </h1>
                 <h2 class="text-xl sm:text-2xl font-bold text-slate-300 mt-3">
                     IT Support Specialist & Web Systems Developer
                 </h2>
                 <p class="mt-6 text-slate-400 leading-relaxed text-base sm:text-lg">
-                    Lulusan Sarjana Ilmu Komputer Universitas Subang[span_0](start_span)[span_0](end_span) dengan keahlian komprehensif dalam pemeliharaan infrastruktur IT, administrasi Linux & ARM Server[span_1](start_span)[span_1](end_span), manajemen jaringan broadband, hingga rekayasa aplikasi web[span_2](start_span)[span_2](end_span). Siap memberikan performa tinggi dan keandalan sistem operasional terbaik.
+                    Lulusan Sarjana Ilmu Komputer Universitas Subang dengan spesialisasi pemeliharaan infrastruktur IT, administrasi Linux & ARM Server, manajemen jaringan broadband, hingga rekayasa aplikasi web. Siap memberikan performa dan stabilitas sistem terbaik.
                 </p>
                 <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="https://drive.google.com/file/d/1vRp5kgvRvbBiJMYursPNAB46-qPuAFR4/view?usp=drivesdk" target="_blank" class="bg-gradient-to-r from-accent-cyan to-accent-violet text-slate-950 font-bold px-6 py-3.5 rounded-xl transition shadow-lg shadow-accent-cyan/20 flex items-center gap-2 hover:scale-105">
-                        <i class="fa-solid fa-file-pdf"></i> Unduh CV (Drive)
+                    <a href="https://drive.google.com/file/d/1vRp5kgvRvbBiJMYursPNAB46-qPuAFR4/view?usp=drivesdk" target="_blank" class="bg-gradient-to-r from-cyber-cyan to-cyber-purple text-slate-950 font-bold px-6 py-3.5 rounded-xl transition shadow-xl shadow-cyber-cyan/20 flex items-center gap-2 hover:scale-105">
+                        <i class="fa-solid fa-file-pdf"></i> Unduh CV (Google Drive)
                     </a>
-                    <a href="https://wa.me/6285155036969?text=Halo%20Bungsu,%20saya%20ingin%20diskusi%20peluang%20kerja." target="_blank" class="border border-slate-700 hover:border-accent-violet bg-slate-900/80 text-slate-200 font-semibold px-6 py-3.5 rounded-xl transition flex items-center gap-2 hover:scale-105">
+                    <a href="https://wa.me/6285155036969?text=Halo%20Bungsu,%20saya%20ingin%20diskusi%20peluang%20kerja." target="_blank" class="border border-slate-700 hover:border-cyber-purple bg-slate-900/80 text-slate-200 font-semibold px-6 py-3.5 rounded-xl transition flex items-center gap-2 hover:scale-105">
                         <i class="fa-brands fa-whatsapp"></i> Diskusi WhatsApp
                     </a>
                 </div>
             </div>
 
-            <!-- Interactive Bento Status Monitor (Hero Visual) -->
-            <div class="lg:col-span-5" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="bento-card neon-border p-6 rounded-2xl">
+            <!-- Hero Interactive Visual: Floating Live Radar Bento -->
+            <div class="lg:col-span-5 float-slow">
+                <div class="neon-card neon-pulse-border p-6 rounded-3xl relative overflow-hidden">
                     <div class="flex justify-between items-center mb-6">
-                        <div class="text-xs font-mono text-accent-cyan">// SYSTEM DASHBOARD</div>
+                        <div class="text-xs font-mono text-cyber-cyan">// LIVE INFRASTRUCTURE RADAR</div>
                         <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Live Status
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Active Loop
                         </span>
                     </div>
 
                     <div class="space-y-4 font-mono text-xs">
-                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+                        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:scale-105 transition">
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-microchip text-accent-cyan text-base"></i>
+                                <i class="fa-solid fa-microchip text-cyber-cyan text-base animate-bounce"></i>
                                 <div>
                                     <div class="text-slate-200 font-bold">ARM Home Server</div>
                                     <div class="text-slate-500 text-[10px]">Headless Linux Environment</div>
                                 </div>
                             </div>
-                            <span class="text-accent-cyan font-bold">RUNNING</span>
+                            <span class="text-cyber-cyan font-bold">RUNNING</span>
                         </div>
 
-                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+                        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:scale-105 transition">
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-globe text-accent-violet text-base"></i>
+                                <i class="fa-solid fa-globe text-cyber-purple text-base animate-pulse"></i>
                                 <div>
                                     <div class="text-slate-200 font-bold">Web Asset Admin</div>
                                     <div class="text-slate-500 text-[10px]">airmandiri.my.id</div>
                                 </div>
                             </div>
-                            <span class="text-accent-violet font-bold">100% UPTIME</span>
+                            <span class="text-cyber-purple font-bold">100% UPTIME</span>
                         </div>
 
-                        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+                        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between hover:scale-105 transition">
                             <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-database text-accent-emerald text-base"></i>
+                                <i class="fa-solid fa-database text-cyber-emerald text-base animate-spin" style="animation-duration: 8s;"></i>
                                 <div>
-                                    <div class="text-slate-200 font-bold">Database Systems</div>
-                                    <div class="text-slate-500 text-[10px]">MySQL & UML Modeling</div>
+                                    <div class="text-slate-200 font-bold">Database & UML</div>
+                                    <div class="text-slate-500 text-[10px]">MySQL Relational Systems</div>
                                 </div>
                             </div>
-                            <span class="text-accent-emerald font-bold">OPTIMIZED</span>
+                            <span class="text-cyber-emerald font-bold">READY</span>
                         </div>
                     </div>
                 </div>
@@ -182,24 +254,24 @@
         </div>
     </section>
 
-    <!-- Skill Grid Bento Section -->
-    <section id="skills" class="py-20 bg-slate-950/50 border-y border-slate-800/80">
+    <!-- Bento Skill Grid Section dengan Floating Rhythm Berbeda -->
+    <section id="skills" class="py-20 bg-slate-950/60 border-y border-slate-800/80 z-10 relative">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-3 mb-12" data-aos="fade-right">
-                <span class="text-accent-cyan font-mono text-sm">01.</span>
+            <div class="flex items-center gap-3 mb-12">
+                <span class="text-cyber-cyan font-mono text-sm">01.</span>
                 <h3 class="text-2xl font-bold text-slate-100">Kompetensi Utama</h3>
                 <div class="h-[1px] bg-slate-800 flex-1 ml-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- IT Support Bento -->
-                <div class="bento-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-12 h-12 rounded-xl bg-accent-cyan/10 border border-accent-cyan/30 flex items-center justify-center text-accent-cyan text-xl mb-6">
+                <div class="neon-card p-6 rounded-2xl float-slow">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan text-xl mb-6">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <h4 class="text-lg font-bold text-slate-100 mb-2">IT Support & ARM Server</h4>
                     <p class="text-slate-400 text-sm mb-4 leading-relaxed">Penyusunan Home Server berbasis ARM, administrasi Linux, troubleshooting hardware/software, serta manajemen alokasi data broadband.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-accent-cyan">
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-cyber-cyan">
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">ARM Architecture</span>
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">Linux Admin</span>
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">Self-Hosting</span>
@@ -207,27 +279,27 @@
                 </div>
 
                 <!-- Web Dev Bento -->
-                <div class="bento-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-12 h-12 rounded-xl bg-accent-violet/10 border border-accent-violet/30 flex items-center justify-center text-accent-violet text-xl mb-6">
+                <div class="neon-card p-6 rounded-2xl float-medium">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center text-cyber-purple text-xl mb-6">
                         <i class="fa-solid fa-code"></i>
                     </div>
                     <h4 class="text-lg font-bold text-slate-100 mb-2">Web & Software Engineering</h4>
                     <p class="text-slate-400 text-sm mb-4 leading-relaxed">Pengembangan aplikasi web berbasis PHP/MySQL, penataan arsitektur basis data relasional, serta pengujian fungsionalitas sistem.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-accent-violet">
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-cyber-purple">
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">PHP</span>
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">MySQL</span>
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">Tailwind CSS</span>
                     </div>
                 </div>
 
-                <!-- Admin & Tools Bento -->
-                <div class="bento-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 rounded-xl bg-accent-emerald/10 border border-accent-emerald/30 flex items-center justify-center text-accent-emerald text-xl mb-6">
+                <!-- Tools & Admin Bento -->
+                <div class="neon-card p-6 rounded-2xl float-fast">
+                    <div class="w-12 h-12 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald text-xl mb-6">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
                     </div>
                     <h4 class="text-lg font-bold text-slate-100 mb-2">Tools & Systems Analysis</h4>
                     <p class="text-slate-400 text-sm mb-4 leading-relaxed">Permodelan UML terstruktur, manajemen domain kustom & cPanel, pengkonfigurasian sertifikat SSL, serta CLI/SSH remote.</p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-accent-emerald">
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-cyber-emerald">
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">cPanel Admin</span>
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">UML Modeling</span>
                         <span class="bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-lg">Git / SSH</span>
@@ -238,18 +310,18 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 max-w-6xl mx-auto px-6">
-        <div class="flex items-center gap-3 mb-12" data-aos="fade-right">
-            <span class="text-accent-cyan font-mono text-sm">02.</span>
+    <section id="projects" class="py-20 max-w-6xl mx-auto px-6 z-10 relative">
+        <div class="flex items-center gap-3 mb-12">
+            <span class="text-cyber-cyan font-mono text-sm">02.</span>
             <h3 class="text-2xl font-bold text-slate-100">Rekam Jejak & Proyek Rekayasa</h3>
             <div class="h-[1px] bg-slate-800 flex-1 ml-4"></div>
         </div>
 
         <div class="space-y-8">
             <!-- Project 1: ARM Server -->
-            <div class="bento-card rounded-2xl p-6 sm:p-8" data-aos="fade-up">
+            <div class="neon-card rounded-2xl p-6 sm:p-8">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-accent-cyan text-xs font-mono uppercase tracking-wider">Infrastructure & Self-Hosting</span>
+                    <span class="text-cyber-cyan text-xs font-mono uppercase tracking-wider">Infrastructure & Self-Hosting</span>
                     <span class="text-slate-500 text-xs font-mono">ARM Architecture</span>
                 </div>
                 <h4 class="text-xl sm:text-2xl font-bold text-slate-100 mb-3">
@@ -258,7 +330,7 @@
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">
                     Membangun dan mengonfigurasi Home Server mandiri berbasis arsitektur ARM. Mengelola sistem operasi Linux headless, akses remote SSH, alokasi jaringan lokal, penyimpanan terdistribusi, serta penyetelan layanan self-hosted hemat daya.
                 </p>
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-accent-cyan">
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-cyber-cyan">
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">ARM Architecture</span>
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">Linux OS Admin</span>
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">SSH / CLI Management</span>
@@ -266,10 +338,10 @@
             </div>
 
             <!-- Project 2: Web Infra -->
-            <div class="bento-card rounded-2xl p-6 sm:p-8" data-aos="fade-up" data-aos-delay="100">
+            <div class="neon-card rounded-2xl p-6 sm:p-8">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-accent-violet text-xs font-mono uppercase tracking-wider">Web Asset Management</span>
-                    <a href="https://airmandiri.my.id" target="_blank" class="text-accent-violet hover:underline text-xs font-mono flex items-center gap-1">
+                    <span class="text-cyber-purple text-xs font-mono uppercase tracking-wider">Web Asset Management</span>
+                    <a href="https://airmandiri.my.id" target="_blank" class="text-cyber-purple hover:underline text-xs font-mono flex items-center gap-1">
                         airmandiri.my.id <i class="fa-solid fa-up-right-from-square"></i>
                     </a>
                 </div>
@@ -277,9 +349,9 @@
                     Pengelolaan Aset Web & Konfigurasi Jaringan Server Mandiri
                 </h4>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Bertanggung jawab atas pemeliharaan dan pengkonfigurasian aset jaringan web mandiri[span_3](start_span)[span_3](end_span). Meliputi pendaftaran & pemetaan DNS Record (A & CNAME), penanganan unsuspension, pemeliharaan berkala[span_4](start_span)[span_4](end_span), integrasi sertifikat SSL[span_5](start_span)[span_5](end_span), serta pengawasan uptime server[span_6](start_span)[span_6](end_span).
+                    Bertanggung jawab atas pemeliharaan dan pengkonfigurasian aset jaringan web mandiri. Meliputi pendaftaran & pemetaan DNS Record (A & CNAME), penanganan unsuspension, pemeliharaan berkala, integrasi sertifikat SSL, serta pengawasan uptime server.
                 </p>
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-accent-violet">
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-cyber-purple">
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">DNS Routing</span>
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">cPanel Admin</span>
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">SSL Security</span>
@@ -287,18 +359,18 @@
             </div>
 
             <!-- Project 3: Skripsi -->
-            <div class="bento-card rounded-2xl p-6 sm:p-8" data-aos="fade-up" data-aos-delay="200">
+            <div class="neon-card rounded-2xl p-6 sm:p-8">
                 <div class="flex justify-between items-start mb-2">
-                    <span class="text-accent-emerald text-xs font-mono uppercase tracking-wider">Skripsi S1 Ilmu Komputer</span>
+                    <span class="text-cyber-emerald text-xs font-mono uppercase tracking-wider">Skripsi S1 Ilmu Komputer</span>
                     <span class="text-slate-500 text-xs font-mono">SDN Sagalaherang 2</span>
                 </div>
                 <h4 class="text-xl sm:text-2xl font-bold text-slate-100 mb-3">
                     Sistem Informasi Penilaian Kinerja Guru (PKG) Berbasis Web
                 </h4>
                 <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                    Membangun aplikasi web untuk mendigitalisasi proses evaluasi kinerja guru[span_7](start_span)[span_7](end_span). Mengimplementasikan permodelan UML (Use Case) dengan batasan hak akses multi-role (Admin, Operator, Kepala Sekolah)[span_8](start_span)[span_8](end_span), pengelolaan data kriteria[span_9](start_span)[span_9](end_span), perhitungan peringkat otomatis[span_10](start_span)[span_10](end_span), dan pencetakan laporan[span_11](start_span)[span_11](end_span).
+                    Membangun aplikasi web untuk mendigitalisasi proses evaluasi kinerja guru. Mengimplementasikan permodelan UML (Use Case) dengan batasan hak akses multi-role (Admin, Operator, Kepala Sekolah), pengelolaan data kriteria, perhitungan peringkat otomatis, dan pencetakan laporan.
                 </p>
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-accent-emerald">
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-cyber-emerald">
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">PHP & MySQL</span>
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">UML Modeling</span>
                     <span class="bg-slate-900 border border-slate-800 px-3 py-1 rounded-lg">Black-Box Testing</span>
@@ -308,17 +380,17 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-slate-950/50 border-t border-slate-800/80">
+    <section id="education" class="py-20 bg-slate-950/60 border-t border-slate-800/80 z-10 relative">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-3 mb-12" data-aos="fade-right">
-                <span class="text-accent-cyan font-mono text-sm">03.</span>
+            <div class="flex items-center gap-3 mb-12">
+                <span class="text-cyber-cyan font-mono text-sm">03.</span>
                 <h3 class="text-2xl font-bold text-slate-100">Pendidikan & Kualifikasi</h3>
                 <div class="h-[1px] bg-slate-800 flex-1 ml-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bento-card p-6 rounded-2xl" data-aos="fade-right">
-                    <span class="text-accent-cyan text-xs font-mono">2019 - 2024</span>
+                <div class="neon-card p-6 rounded-2xl">
+                    <span class="text-cyber-cyan text-xs font-mono">2019 - 2024</span>
                     <h4 class="text-lg font-bold text-slate-100 mt-1">S1 Sistem Informasi / Ilmu Komputer</h4>
                     <p class="text-slate-400 text-sm mt-1">Universitas Subang</p>
                     <p class="text-slate-400 text-xs mt-3 leading-relaxed">
@@ -326,8 +398,8 @@
                     </p>
                 </div>
 
-                <div class="bento-card p-6 rounded-2xl" data-aos="fade-left">
-                    <span class="text-accent-violet text-xs font-mono">Evaluasi Rekrutmen Industri</span>
+                <div class="neon-card p-6 rounded-2xl">
+                    <span class="text-cyber-purple text-xs font-mono">Evaluasi Rekrutmen Industri</span>
                     <h4 class="text-lg font-bold text-slate-100 mt-1">Pengujian Kompetensi Teknis</h4>
                     <p class="text-slate-400 text-sm mt-1">FHCI BUMN & Corporate Assessment Tracks</p>
                     <p class="text-slate-400 text-xs mt-3 leading-relaxed">
@@ -338,10 +410,10 @@
         </div>
     </section>
 
-    <!-- Footer & Contact -->
-    <footer id="contact" class="py-20 border-t border-slate-800 text-center bg-slate-950" data-aos="zoom-in">
+    <!-- Footer & Contact Section -->
+    <footer id="contact" class="py-20 border-t border-slate-800 text-center bg-slate-950 z-10 relative">
         <div class="max-w-3xl mx-auto px-6">
-            <span class="text-accent-cyan font-mono text-sm">04. Mari Terhubung</span>
+            <span class="text-cyber-cyan font-mono text-sm">04. Mari Terhubung</span>
             <h3 class="text-3xl font-extrabold text-slate-100 mt-2">Kontak Direct</h3>
             <p class="text-slate-400 mt-4 text-sm leading-relaxed">
                 Terbuka untuk posisi **IT Support Specialist**, **Network Administrator**, maupun **Web Developer**.
@@ -349,32 +421,23 @@
 
             <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4 text-sm">
                 <a href="https://wa.me/6285155036969?text=Halo%20Bungsu,%20saya%20tertarik%20dengan%20profil%20v2%20Anda." target="_blank" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 hover:scale-105">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> WA: 0851-5503-6969
+                    <i class="fa-brands fa-whatsapp text-lg animate-pulse"></i> WA: 0851-5503-6969
                 </a>
                 <a href="mailto:bungsupangestu33@gmail.com" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-bold px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 hover:scale-105">
-                    <i class="fa-solid fa-envelope text-lg text-accent-cyan"></i> bungsupangestu33@gmail.com
+                    <i class="fa-solid fa-envelope text-lg text-cyber-cyan"></i> bungsupangestu33@gmail.com
                 </a>
             </div>
 
             <div class="mt-8 flex justify-center items-center gap-6 text-xl text-slate-400">
-                <a href="https://github.com/bungsupangestuu" target="_blank" class="hover:text-accent-cyan transition hover:scale-110"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com" target="_blank" class="hover:text-accent-cyan transition hover:scale-110"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/bungsupangestuu" target="_blank" class="hover:text-cyber-cyan transition hover:scale-110"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://linkedin.com" target="_blank" class="hover:text-cyber-cyan transition hover:scale-110"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
             </div>
 
             <p class="text-xs text-slate-600 mt-12 font-mono">
-                © 2026 Bungsu Pangestu, S.Kom. Pro-Max V2 Layout.
+                © 2026 Bungsu Pangestu, S.Kom. Creative Motion V2 Edition.
             </p>
         </div>
     </footer>
 
-    <!-- AOS JavaScript -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            once: true,
-            duration: 800,
-            easing: 'ease-out-cubic',
-        });
-    </script>
 </body>
 </html>
